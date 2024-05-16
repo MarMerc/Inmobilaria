@@ -9,8 +9,7 @@
                 <div class="mb-6">
                   <label class="form-label">Tipo de Inmueble</label>
                   <select for="formControlPost" class="form-select" aria-label="Default select example" v-model="formControlPost.TipoInmueble">
-                    <option selected>Tipo de Inmueble</option>
-                    <option value="Departamento">Departamento</option>
+                    <option selected>Departamento</option>                   
                     <option value="Casa">Casa</option>
                     <option value="Terreno">Terreno</option>
                   </select>
@@ -20,8 +19,7 @@
                 <div class="mb-6">
                   <label class="form-label">Tipo de Operación</label>
                   <select for="formControlPost" class="form-select" aria-label="Default select example" v-model="formControlPost.TipoOperación">
-                    <option selected>Tipo de Operacion</option>
-                    <option value="Venta">Venta</option>
+                    <option selected>Venta</option>                   
                     <option value="Alquiler">Alquiler</option>
                   </select>
                 </div>
@@ -92,6 +90,7 @@ export default {
         Antiguedad: "",
         LatUbicacion: "",
         LongUbicacion: "",
+        
       },
     };
   },

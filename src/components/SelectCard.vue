@@ -100,7 +100,7 @@ export default {
     async HandlerEliminar() {
       const idInmueble = this.$route.params.id;
       try {
-        await axios.post(`https://localhost:7055/api/Inmueble/Eliminar/${idInmueble}`);
+        await axios.delete(`https://localhost:7055/api/Inmueble/Eliminar/${idInmueble}`);
         console.log("Datos Eliminados Correctamente");
         
       } catch (error) {
