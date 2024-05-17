@@ -10,21 +10,28 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6 mt-5">
-                  <div v-if="selectedItem.tipoInmueble === 'Departamento'">
+                  <div v-if="selectedItem.tipoInmueble === 'Casa'">
                     <i class="fa-solid fa-house fa-2xl mb-4"></i>
                   </div>
                   <div v-else>
-                    <i class="fa-solid fa-building fa-2xl mb-4"></i>
+                    <div v-if="selectedItem.tipoInmueble === 'Terreno'">
+                      <i class="fa-solid fa-panorama fa-2xl mb-4"></i>
+                    </div>
+                    <div v-else>
+                      <i class="fa-solid fa-building fa-2xl mb-4"></i>
+                    </div>
                   </div>
-                  <h5 class="card-title">{{ selectedItem.tipoOperación }}</h5>
+                  <h5 class="card-title">{{ selectedItem.tipoInmueble }}</h5>
                 </div>
                 <div class="col-md-6 mt-5">
                   <div v-if="selectedItem.tipoInmueble === 'Venta'">
                     <i class="fa-solid fa-sack-dollar fa-2xl mb-4"></i>
                   </div>
+
                   <div v-else>
                     <i class="fa-solid fa-file-signature fa-2xl mb-4"></i>
                   </div>
+
                   <h5 class="card-title">{{ selectedItem.tipoOperación }}</h5>
                 </div>
               </div>
@@ -70,8 +77,8 @@
               </button>
               <router-link to="/lista">
                 <button type="button" class="btn btn-outline-primary">
-                  <i class="fa-solid fa-backward-step fa-xl" style="color: #134cae;"></i>
-                 </button>
+                  <i class="fa-solid fa-backward-step fa-xl" style="color: #134cae"></i>
+                </button>
               </router-link>
             </div>
           </div>
@@ -102,11 +109,10 @@ export default {
       try {
         await axios.delete(`https://localhost:7055/api/Inmueble/Eliminar/${idInmueble}`);
         console.log("Datos Eliminados Correctamente");
-        
       } catch (error) {
         console.error("Error al guardar los datos", error);
       }
-          },
+    },
 
     cargaCard() {
       const idInmueble = this.$route.params.id;

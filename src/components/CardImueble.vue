@@ -11,7 +11,7 @@
               <div class="card-body">
                 <div class="row ">
                   <div class="col-md-6 mt-5">
-                    <div v-if="x.tipoInmueble === 'Departamento'">
+                    <div v-if="x.tipoInmueble === 'Casa'">
                       <i class="fa-solid fa-house fa-2xl mb-4"></i>
                     </div>
                     <div v-else>

@@ -1,6 +1,6 @@
 <template>
   <div class="principalComp d-flex justify-content-center align-items-center mt-5 ">
-    <div class="" >
+
       <h1 class="display-4 text-center">Inmuebles y Propiedades</h1>
       <hr />
       <div class="row CardInmueble">
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-    </div>
+
     <hr />
     <div
       class="btn-group d-flex justify-content-around p-3"

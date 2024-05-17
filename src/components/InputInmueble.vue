@@ -12,34 +12,34 @@
           </div>
           <div class="col-md-6">
             <div class="mb-3" v-if="selectedItem">
-              <label for="exampleFormControlInput1" class="form-label text-success">Tipo de Operacion:</label>
+              <label for="FormControlInput" class="form-label text-success">Tipo de Operacion:</label>
               <input type="text" class="form-control" id="inputTipoOper" v-model="selectedItem.tipoOperación" />
             </div>
           </div>
         </div>
         <div class="row">
           <div class="mb-3" v-if="selectedItem">
-            <label for="exampleFormControlInput1" class="form- text-success">Descripcion:</label>
+            <label for="FormControlInput" class="form- text-success">Descripcion:</label>
             <input type="text" class="form-control" id="inputDescripcion" v-model="selectedItem.descripción" />
           </div>
         </div>
         <div class="row">
           <div class="col-md 4">
             <div class="mb-3" v-if="selectedItem">
-              <label for="exampleFormControlInput1" class="form-label text-success">Ambientes:</label>
-              <input type="text" class="form-control"  v-model="selectedItem.ambientes" />
+              <label for="FormControlInput" class="form-label text-success">Ambientes:</label>
+              <input type="text" class="form-control" v-model="selectedItem.ambientes" />
             </div>
           </div>
           <div class="col-md 4">
             <div class="mb-3" v-if="selectedItem">
-              <label for="exampleFormControlInput1" class="form-label text-success">Antiguedad:</label>
-              <input type="text" class="form-control"  v-model="selectedItem.antiguedad" />
+              <label for="FormControlInput" class="form-label text-success">Antiguedad:</label>
+              <input type="text" class="form-control" v-model="selectedItem.antiguedad" />
             </div>
           </div>
           <div class="col-md 4">
             <div class="mb-3" v-if="selectedItem">
-              <label for="exampleFormControlInput1" class="form-label text-success">Metros cuadrados:</label>
-              <input type="text" class="form-control"  v-model="selectedItem.m2" />
+              <label for="FormControlInput" class="form-label text-success">Metros cuadrados:</label>
+              <input type="text" class="form-control" v-model="selectedItem.m2" />
             </div>
           </div>
         </div>
@@ -47,14 +47,14 @@
       <div class="row">
         <div class="col-md-4">
           <div class="mb-3" v-if="selectedItem">
-            <label for="exampleFormControlInput1" class="form-label text-success">Latitud:</label>
-            <input type="text" class="form-control"  v-model="selectedItem.latUbicación" />
+            <label for="FormControlInput" class="form-label text-success">Latitud:</label>
+            <input type="text" class="form-control" v-model="selectedItem.latUbicación" />
           </div>
         </div>
         <div class="col-md-4">
           <div class="mb-3" v-if="selectedItem">
-            <label for="exampleFormControlInput1" class="form-label text-success">Longitud:</label>
-            <input type="text" class="form-control"  v-model="selectedItem.longUbicación" />
+            <label for="FormControlInput" class="form-label text-success">Longitud:</label>
+            <input type="text" class="form-control" v-model="selectedItem.longUbicación" />
           </div>
         </div>
       </div>
@@ -74,10 +74,14 @@ export default {
   data() {
     return {
       selectedItem: null,
+      FormControlInput:null,
+      created() {
+        this.FormControlInputInicial = { ...this.FormControlInput };
+      },
 
-      resetForm(){
-        this.selectedItem.descripción=""
-      }
+      // resetForm() {
+      //   this.selectedItem.descripción = "";
+      // },
     };
   },
 
@@ -89,13 +93,8 @@ export default {
         .put(`https://localhost:7055/api/Inmueble/Editar`, this.selectedItem)
         .then((response) => {
           console.log("Cambios guardados correctamente:", response.data.response);
-
-          document.addEventListener("DOMContentLoaded", function () {
-            let formulario = document.getElementById("exampleFormControlInput1");
-            formulario.addEventListener("submit", function () {
-              this.resetForm();
-            });
-          });
+          this.FormControlInput = { ...this.FormControlInputInicial };
+          this.$router.push('/lista');
         })
         .catch((error) => {
           console.error("Error al modificar los datos del inmueble desde la API", error);

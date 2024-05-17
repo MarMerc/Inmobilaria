@@ -45,7 +45,7 @@ export default {
 }
 
 nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 nav a {
@@ -57,7 +57,7 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-·HeaderBar {
+#HeaderBar {
   background: #585222;
 }
 </style>

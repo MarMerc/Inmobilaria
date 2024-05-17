@@ -27,6 +27,7 @@ export default {
           console.error("Error al obtener datos desde la API", error);
         });
     },
+
   },
 
   mounted() {
