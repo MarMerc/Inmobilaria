@@ -55,16 +55,19 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 mt-4">
+                <div class="col-md-5 mt-4">
                   <H6 class="card-text">
                     <small class="text-body-secondary"> Lat: {{ selectedItem.latUbicación }} </small>
                   </H6>
                 </div>
-                <div class="col-md-6 mt-4">
+                <div class="col-md-5 mt-4">
                   <p class="card-text">
                     <small class="text-body-secondary"> Long:{{ selectedItem.longUbicación }} </small>
                   </p>
                 </div>
+                <div class="col-md-1 mt-4" @click="UbicacionMap">
+                    <i class="fa-solid fa-location-dot fa-2xl mb-4"></i>
+                  </div>
               </div>
             </div>
           </div>
@@ -105,9 +108,20 @@ export default {
     return {
       selectedItem: null,
       idInmueble: null,
+      lat:"",
+      long:"",
+      url:"",
     };
   },
   methods: {
+
+    UbicacionMap() {
+      this.lat = this.latUbicación;
+      this.long = this.longUbicación;
+      this.url = `https://www.google.com/maps?q=${this.lat},${this.lng}`;
+      window.open(this.url, '_blank');
+    },
+
     HandlerEditar() {
       this.$router.push({ name: "InputInmueble", params: { id: this.idInmueble } });
      
