@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submitForm" class="justify-content-center">
-    <div class="container mt-4  align-items-lg-center">
+    <div class="container mt-4 align-items-lg-center">
       <div class="w-100 mt-8 bg-success-subtle p-5 rounded">
         <div class="row justify-content-center">
           <div class="col-md-6">
@@ -109,6 +109,8 @@ export default {
         Antiguedad: "",
         LatUbicacion: "",
         LongUbicacion: "",
+
+        ImagenInmueble:[],
       },
       formControlPostInicial: null,
       esNumeroValidoAnt: true,
@@ -127,12 +129,10 @@ export default {
         await axios.post("https://localhost:7055/api/Inmueble/Guardar", this.formControlPost);
         this.formControlPost = { ...this.formControlPostInicial };
         console.log("Datos Guardados Correctamente", this.formControlPost);
-        
-        document.getElementById('successButton').addEventListener('click', function() {
-      alert('Todo salió bien');
-    });
 
-        
+        document.getElementById("successButton").addEventListener("click", function () {
+          alert("Todo salió bien");
+        });
       } catch (error) {
         console.error("Error al guardar los datos", error);
       }

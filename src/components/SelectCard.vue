@@ -5,6 +5,7 @@
         <div class="row p-lg-1">
           <div class="col-md-6 d-flex justify-content-center">
             <img src="https://d1acdg20u0pmxj.cloudfront.net/listings/ce2cdf78-7654-4bcf-aa26-6278c8e6a2a8/360x200/7c7f79cd-d3c8-40ab-a975-084cf582b528.webp?" class="w-100" alt="..." />
+            <!--<Carrusel />-->
           </div>
           <div class="col-md-5">
             <div class="card-body">
@@ -93,7 +94,13 @@
 
 <script>
 import axios from "axios";
+//import Carrusel from "./CarruselImg.vue";
+
 export default {
+  Componentes: {
+
+  },
+
   data() {
     return {
       selectedItem: null,
@@ -103,15 +110,25 @@ export default {
   methods: {
     HandlerEditar() {
       this.$router.push({ name: "InputInmueble", params: { id: this.idInmueble } });
+     
     },
+
     async HandlerEliminar() {
       const idInmueble = this.$route.params.id;
-      try {
-        await axios.delete(`https://localhost:7055/api/Inmueble/Eliminar/${idInmueble}`);
-        console.log("Datos Eliminados Correctamente");
-      } catch (error) {
-        console.error("Error al guardar los datos", error);
+      if (confirm('¿Estás seguro de que deseas eliminar este registro?')){
+        try {
+          await axios.delete(`https://localhost:7055/api/Inmueble/Eliminar/${idInmueble}`);
+          console.log("Datos Eliminados Correctamente");
+          alert('Registro Eliminado exitosamente');
+          this.$router.push('/lista');
+        } catch (error) {
+          console.error("Error al guardar los datos", error);
+        }        
+      }else {
+        // Acción cancelada
+        alert('Acción cancelada');
       }
+
     },
 
     cargaCard() {
@@ -126,6 +143,10 @@ export default {
           console.error("Error al obtener datos del inmueble desde la API", error);
         });
     },
+
+    cargaImagenes(){
+      
+    }
   },
 
   mounted() {

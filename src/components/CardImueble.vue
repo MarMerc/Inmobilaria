@@ -49,7 +49,7 @@
                     <H5 class="card-text">{{ x.antiguedad }} años</H5>
                   </div>
                   <div class="col-4">
-                    <H5 class="card-text">{{ x.M2 }} m2</H5>
+                    <H5 class="card-text">{{ x.M2}} m2</H5>
                   </div>
                 </div>
                 <div class="row">

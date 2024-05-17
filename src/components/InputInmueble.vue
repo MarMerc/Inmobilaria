@@ -95,6 +95,7 @@ export default {
           console.log("Cambios guardados correctamente:", response.data.response);
           this.FormControlInput = { ...this.FormControlInputInicial };
           this.$router.push('/lista');
+          alert('Datos Modificados exitosamente');
         })
         .catch((error) => {
           console.error("Error al modificar los datos del inmueble desde la API", error);
