@@ -42,7 +42,7 @@ BEGIN
     CREATE TABLE IMAGEN(
 	IdImagen int primary key identity,
 	UbicacionImg varchar(400),
-	InmuebleId int  FOREIGN KEY REFERENCES INMUEBLE(IdInmueble)
+	IdInmueble int  FOREIGN KEY REFERENCES INMUEBLE(IdInmueble)
 );
 
 GO
@@ -52,13 +52,13 @@ INSERT INTO INMUEBLE (TipoInmueble,TipoOperación,Descripción,Ambientes,M2,Antigu
 ('Departamento','Alquiler','EXCLUSIVO DEPARTAMENTO EN DUPLEX EN EMBLEMATICO EDIFICIO KAVANAGH, RETIRO, BUENOS AIRES.PLAZA SAN MARTIN - RETIRO - BUENOS AIRES',5,360,90,'-26.826562','-65.160665'),
 ('Casa','Alquiler','Venta de imponente casa en bloque en Barrio Parque.Edificio de ladrillo a la vista ubicado en una de las mejores esquinas de Buenos Aires.La propiedad tiene una superficie total de 2056.11 m2, y una superficie descubierta de 507,13 m2 dividida en tres unidades con amenities en el último piso.',5,1548,30,'-26.826562', '-65.160665'),
 ('Departamento','Venta','EXCLUSIVO DEPARTAMENTO EN DUPLEX EN EMBLEMATICO EDIFICIO KAVANAGH, RETIRO, BUENOS AIRES.PLAZA SAN MARTIN - RETIRO - BUENOS AIRES',5,360,90,'-26.826562','-65.160665'),
-('Casa','Venta','Venta de imponente casa en bloque en Barrio Parque.Edificio de ladrillo a la vista ubicado en una de las mejores esquinas de Buenos Aires.La propiedad tiene una superficie total de 2056.11 m2, y una superficie descubierta de 507,13 m2 dividida en tres unidades con amenities en el último piso.',5,1548,30,'-26.826562', '-65.160665')
+('Casa','Venta','Venta de imponente casa en bloque en Barrio Parque.Edificio de ladrillo a la vista ubicado en una de las mejores esquinas de Buenos Aires.La propiedad tiene una superficie total de 2056.11 m2, y una superficie descubierta de 507,13 m2 dividida en tres unidades con amenities en el último piso.',5,1548,30,'-26.826562', '-65.160665');
 
 GO
 
 -- Insertar datos en la tabla Imagenes
 
-INSERT INTO IMAGEN(UbicacionImg,InmuebleId)
+INSERT INTO IMAGEN(UbicacionImg,IdInmueble)
 VALUES('https://d1acdg20u0pmxj.cloudfront.net/listings/e94cb466-163a-4869-b7a0-5c5f67a37393/264x144/f6e81d2c-2fe1-4958-8f86-957922d2c4af.webp?',1);
 
 INSERT INTO IMAGEN(UbicacionImg)
