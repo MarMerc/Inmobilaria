@@ -25,7 +25,6 @@
         v-for="image in datos"
         :key="image.idImagen"
         :img-src="image.ubicacionImg"
-    
       >
       </b-carousel-slide>
     </b-carousel>
