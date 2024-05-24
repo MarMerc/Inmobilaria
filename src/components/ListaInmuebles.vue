@@ -16,7 +16,7 @@ export default {
   methods: {
     listarCards() {
       axios
-        .get("https://localhost:7055/api/Inmueble/Lista")
+        .get("https://localhost:7178/api/Inmueble/Lista")
         .then((response) => {
           response.data.response.forEach((element) => {
             this.Items.push(element);

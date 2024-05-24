@@ -148,7 +148,7 @@ export default {
     cargaCard() {
       const idInmueble = this.$route.params.id;
       axios
-        .get(`https://localhost:7055/api/Inmueble/Obtener/${idInmueble}`)
+        .get(`https://localhost:7178/api/Inmueble/Obtener/${idInmueble}`)
         .then((response) => {
           this.selectedItem = response.data.response;
           console.log("Datos del inmueble seleccionado:", this.selectedItem);

@@ -84,7 +84,7 @@ export default {
       Items: [],
       SelectItem: null,
     };
-  },
+  }, 
 
   methods: {
     handlerSelected(idInmueble) {
@@ -93,7 +93,7 @@ export default {
 
     listaAll() {
       axios
-        .get("https://localhost:7055/api/Inmueble/Lista")
+        .get("https://localhost:7178/api/Inmueble/Lista")
         .then((response) => {
           response.data.response.forEach((element) => {
             this.Items.push(element);

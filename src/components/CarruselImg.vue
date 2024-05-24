@@ -1,33 +1,11 @@
 <script>
-import axios from "axios";
 
-export default {
-  data() {
-    return {
-      ImagenInfo: Object,
-      datos: [],
-    };
-  },
-  mounted() {
-    axios
-      .get("https://localhost:7055/api/Imagen/Lista")
-      .then((response) => {
-        response.data.response.forEach((element) => {
-          this.datos.push(element);
-        });
-        console.log("Imagenes", this.datos);
-      })
-      .catch((error) => {
-        console.error("Error al obtener datos desde la API", error);
-      });
-  },
-};
 </script>
 
 <template>
-  <!-- <div v-for="x in datos" :key="x.idImagen" class=" ">
-    <img :surc="x.ubicacionImg" alt="Imagen del inm"/>
-  </div> -->
+  <div v-for="x in datos" :key="x.idImagen" class=" ">
+    <img src="https://d1acdg20u0pmxj.cloudfront.net/listings/ce2cdf78-7654-4bcf-aa26-6278c8e6a2a8/360x200/7c7f79cd-d3c8-40ab-a975-084cf582b528.webp?" alt="Imagen del inm"/>
+  </div>
 <div>
   <b-carousel
       id="carousel-fade"
